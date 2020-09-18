@@ -11,8 +11,6 @@ block content
         each link in links
             tr
                 td
-                    a(href=link.link)
-                        =link.link
+                    a(href=link.link,target="_blank")=link.link
                 td
-                    a(href=link.link)     
-                        =link.shortenlink    
+                    a(href=link.shortenlink,target="_blank")=link.shortenlink   

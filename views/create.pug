@@ -10,5 +10,4 @@ block content
             button(type="submit", class="btn btn-primary ") Shorten
     if(data)
         p Shorten link: 
-            a(href=data.link)
-                =data.shortenlink
+            a(href="/api/"+data.id,target="_blank")=data.shortenlink
