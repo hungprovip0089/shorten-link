@@ -1,0 +1,14 @@
+extends ../template/layout
+block content
+    h1 Create 
+    if(error)
+        .alert.alert-danger= error
+    form.form-inline(action='/create',method = 'POST')   
+        .form-group            
+            label(for="link") Link
+            input#link.form-control(name='link',type='url')
+            button(type="submit", class="btn btn-primary ") Shorten
+    if(data)
+        p Shorten link: 
+            a(href=data.link)
+                =data.shortenlink
