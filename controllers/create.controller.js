@@ -6,7 +6,7 @@ module.exports.create = function(req,res){
 module.exports.createPost = function(req,res){
     var id = shortid.generate();
     var link = req.body.link;
-    var shortenlink = 'http://localhost:3000/api/'+id;
+    var shortenlink = 'https://shorten-link-by-hung.herokuapp.com/api'+id;
     var data = {
         id : id,
         link : link,
