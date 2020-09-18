@@ -7,11 +7,11 @@ module.exports.history = function(req,res){
 }
 module.exports.search = function(req,res){
     var link = req.query.link;
-    var needlink = [
-        db.get('link').find({ link : link}).value()
-    ];
+    var Matchedlink = db.get('link').value().filter(function(data){
+        return data.link===link;
+    })
     res.render('history',{
-        links : needlink,
+        links : Matchedlink,
         value : link
     });
 }

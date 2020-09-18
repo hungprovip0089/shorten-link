@@ -4,13 +4,14 @@ block content
     form(action='/history/search',METHOD = 'GET',class='d-flex')
         input(name='link',type='url',placeholder='url',class = 'form-control', value= value)
         button(class="btn btn-outline-success") search
-    table.table
-        tr
-            th Link
-            th Shorten link
-        each link in links
+    if(links)
+        table.table
             tr
-                td
-                    a(href=link.link,target="_blank")=link.link
-                td
-                    a(href=link.shortenlink,target="_blank")=link.shortenlink   
+                th Link
+                th Shorten link
+            each link in links
+                tr
+                    td
+                        a(href=link.link,target="_blank")=link.link
+                    td
+                        a(href=link.shortenlink,target="_blank")=link.shortenlink   
