@@ -1,5 +1,5 @@
-var db = require('../db');
-module.exports.linkexist = function(req,res,next){
+var db = require('../models/link.model.js');
+module.exports.linkexist = async function(req,res,next){
     var link = req.body.link;
     if(!link){
         var error = "Link is required";
@@ -8,7 +8,7 @@ module.exports.linkexist = function(req,res,next){
         });
         return;
     }
-    var existLink = db.get('link').find({ link : link}).value();
+    var existLink = await db.exists({link : link});
     if(existLink){
         var error = "Link has already been shortened. Please check history";
         res.render('create',{

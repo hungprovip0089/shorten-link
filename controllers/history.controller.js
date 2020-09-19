@@ -1,15 +1,13 @@
-var db = require('../db');
-module.exports.history = function(req,res){
-    var links = db.get('link').value();
+var db = require('../models/link.model.js');
+module.exports.history = async function(req,res){
+    var links = await db.find();
     res.render('history',{
         links : links
-    });
-}
-module.exports.search = function(req,res){
-    var link = req.query.link;
-    var Matchedlink = db.get('link').value().filter(function(data){
-        return data.link===link;
     })
+}
+module.exports.search = async function(req,res){
+    var link = req.query.link;
+    var Matchedlink = await db.find({link : link});
     res.render('history',{
         links : Matchedlink,
         value : link
